@@ -1,0 +1,3 @@
+/Users/levensta/CPP-study/CPP-Module00/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/levensta/CPP-study/CPP-Module00/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/levensta/CPP-study/CPP-Module00/cmake-build-debug/CMakeFiles/CPP_Module00.dir
