@@ -83,6 +83,27 @@
 		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/00 – Megaphone/megaphone.cpp">
 			<Option target="CPP_Module00"/>
 		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/Attribute.cpp">
+			<Option target="CPP_Module00"/>
+		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/Attribute.h">
+			<Option target="CPP_Module00"/>
+		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/Contact.cpp">
+			<Option target="CPP_Module00"/>
+		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/Contact.h">
+			<Option target="CPP_Module00"/>
+		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/PhoneBook.cpp">
+			<Option target="CPP_Module00"/>
+		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/PhoneBook.h">
+			<Option target="CPP_Module00"/>
+		</Unit>
+		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/01 – My Awesome PhoneBook/main.cpp">
+			<Option target="CPP_Module00"/>
+		</Unit>
 		<Unit filename="/Users/levensta/CPP-study/CPP-Module00/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
