@@ -16,8 +16,9 @@ public:
 	Attribute	attr[5];
 	Attribute	getAttribute(std::string nameAttr);
 	Attribute	getAttribute(int numAttr);
+	void 		setAttribute(int numAttr, std::string valueAttr);
 	void 		initAttributes(std::string namesAttrs);
-	std::string &operator[](int index);
+//	std::string &operator[](int index);
 };
 
 

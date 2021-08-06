@@ -14,7 +14,7 @@ private:
 public:
 	PhoneBook();
 	~PhoneBook();
-	void addContact(std::string, std::string);
+	void addContact(Contact contact, int index);
 	void searchContact(int index);
 	Contact	getContact(int index);
 

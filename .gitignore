@@ -31,7 +31,10 @@
 *.out
 *.app
 
-*.out
+.DS_Store
 CMakeLists.txt
-/cmake-build-debug
+asfdf.txt
+/CPP-Module00
+**/*/cmake-build-debug
 /.idea
+**/*/test/

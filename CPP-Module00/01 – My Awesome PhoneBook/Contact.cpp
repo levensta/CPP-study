@@ -30,9 +30,13 @@ Attribute Contact::getAttribute(int numAttr) {
 	return (Attribute());
 }
 
+void Contact::setAttribute(int numAttr, std::string valueAttr) {
+	this->attr[numAttr].getValue() = valueAttr;
+}
+
 void Contact::initAttributes(std::string namesAttrs) {
 	size_t	pos = 0;
-	size_t end;
+	size_t	end;
 	for (int i = 0; i < 5; ++i) {
 		end = namesAttrs.find(";", pos);
 		this->attr[i].setAttribute(i + 1, namesAttrs.substr(pos, end - pos), "");
@@ -40,6 +44,6 @@ void Contact::initAttributes(std::string namesAttrs) {
 	}
 }
 
-std::string &Contact::operator[](int index) {
-	return (this->attr[index].getValue());
-}
+//std::string &Contact::operator[](int index) {
+//	return (this->attr[index].getValue());
+//}

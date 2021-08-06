@@ -11,7 +11,7 @@ Attribute::Attribute() {
 Attribute::~Attribute() {}
 
 void	Attribute::setAttribute(int numAttr, std::string nameAttr, std::string valueAttr) {
-	this->_nameAttr = numAttr;
+	this->_numAttr = numAttr;
 	this->_nameAttr = nameAttr;
 	this->_valueAttr = valueAttr;
 }

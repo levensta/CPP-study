@@ -15,3 +15,7 @@ PhoneBook::~PhoneBook() {}
 Contact	PhoneBook::getContact(int index) {
 	return (this->contacts[index]);
 }
+
+void PhoneBook::addContact(Contact contact, int index) {
+	this->contacts[index] = contact;
+}
