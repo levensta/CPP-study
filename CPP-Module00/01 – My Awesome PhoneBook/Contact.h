@@ -6,6 +6,7 @@
 #define CPP_MODULE00_CONTACT_H
 #include <iostream>
 #include "Attribute.h"
+#define ATTRIBUTE_COUNT 5
 
 class Contact {
 
@@ -13,7 +14,7 @@ public:
 	Contact();
 	~Contact();
 
-	Attribute	attr[5];
+	Attribute	attr[ATTRIBUTE_COUNT];
 	Attribute	getAttribute(std::string nameAttr);
 	Attribute	getAttribute(int numAttr);
 	void 		setAttribute(int numAttr, std::string valueAttr);

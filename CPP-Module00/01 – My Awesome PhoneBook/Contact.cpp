@@ -15,7 +15,7 @@ Contact::Contact() {
 Contact::~Contact() {}
 
 Attribute Contact::getAttribute(std::string nameAttr) {
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < ATTRIBUTE_COUNT; ++i) {
 		if (this->attr[i].getName() == nameAttr)
 			return (this->attr[i]);
 	}
@@ -23,7 +23,7 @@ Attribute Contact::getAttribute(std::string nameAttr) {
 }
 
 Attribute Contact::getAttribute(int numAttr) {
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < ATTRIBUTE_COUNT; ++i) {
 		if (this->attr[i].getNum() == numAttr)
 			return (this->attr[i]);
 	}
@@ -37,7 +37,7 @@ void Contact::setAttribute(int numAttr, std::string valueAttr) {
 void Contact::initAttributes(std::string namesAttrs) {
 	size_t	pos = 0;
 	size_t	end;
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < ATTRIBUTE_COUNT; ++i) {
 		end = namesAttrs.find(";", pos);
 		this->attr[i].setAttribute(i + 1, namesAttrs.substr(pos, end - pos), "");
 		pos = end + 1;

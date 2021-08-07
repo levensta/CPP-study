@@ -6,16 +6,16 @@
 #define CPP_MODULE00_PHONEBOOK_H
 #include <iostream>
 #include "Contact.h"
+#define MAX_CONTACTS 8
 
 class PhoneBook {
 
 private:
-	Contact contacts[8];
+	Contact contacts[MAX_CONTACTS];
 public:
 	PhoneBook();
 	~PhoneBook();
 	void addContact(Contact contact, int index);
-	void searchContact(int index);
 	Contact	getContact(int index);
 
 };

@@ -5,7 +5,7 @@
 #include "PhoneBook.h"
 
 PhoneBook::PhoneBook() {
-	for (int i = 0; i < 8; ++i) {
+	for (int i = 0; i < MAX_CONTACTS; ++i) {
 		this->contacts[i].initAttributes("first_name;last_name;nickname;phone_number;darkest_secret");
 	}
 }
