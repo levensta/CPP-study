@@ -1,6 +1,6 @@
 NAME = megaphone
 
-CLANG = clang++ -Wall -Werror
+CLANG = clang++ -Wall -Werror -Werror
 
 SRC = megaphone.cpp
 

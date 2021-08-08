@@ -31,7 +31,7 @@ int	main ()
 			if (index >= MAX_CONTACTS) {
 				index = 0;
 			}
-			for (int i = 0; i < ATTRIBUTE_COUNT; ++i) {
+			for (int i = 0; i < ATTRIBUTE_COUNT && !std::cin.eof(); ++i) {
 				std::cout << "Please enter \33[1;32m" << phonebook.getContact(index).getAttribute(i + 1).getName() << "\33[0m to the new contact’s information" << std::endl;
 				std::getline(std::cin, str);
 				newContact.setAttribute(i, str);

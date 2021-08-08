@@ -36,5 +36,5 @@ CMakeLists.txt
 asfdf.txt
 /CPP-Module00
 **/*/cmake-build-debug
-/.idea
+**/*/.idea
 **/*/test/
