@@ -33,8 +33,6 @@
 
 .DS_Store
 CMakeLists.txt
-asfdf.txt
-/CPP-Module00
 **/*/cmake-build-debug
 **/*/.idea
-**/*/test/
+/.idea
