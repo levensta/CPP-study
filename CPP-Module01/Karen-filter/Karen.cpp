@@ -1,5 +1,5 @@
 //
-// Created by Lorent Evenstar on 8/11/21.
+// Created by Lorent Evenstar on 8/12/21.
 //
 
 #include "Karen.hpp"
@@ -39,9 +39,35 @@ void Karen::error() {
 }
 
 void Karen::complain(std::string level) {
+	int n = -1;
 	for (int i = 0; i < 4; ++i) {
 		if (arrayLevels[i] == level) {
-			(this->*Karen::arrayMethods[i])();
+			n = i;
 		}
+	}
+	switch (n) {
+		case 0:
+			for (int i = n; i < 4; ++i) {
+				(this->*Karen::arrayMethods[i])();
+			}
+			break;
+		case 1:
+			for (int i = n; i < 4; ++i) {
+				(this->*Karen::arrayMethods[i])();
+			}
+		break;
+		case 2:
+			for (int i = n; i < 4; ++i) {
+				(this->*Karen::arrayMethods[i])();
+			}
+			break;
+		case 3:
+			for (int i = n; i < 4; ++i) {
+				(this->*Karen::arrayMethods[i])();
+			}
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
 }
