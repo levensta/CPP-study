@@ -30,9 +30,9 @@ public:
 	~Fixed();
 	Fixed &operator=(const Fixed &copy);
 	Fixed operator+(const Fixed copy) const;
-	Fixed operator-(const Fixed copy);
-	Fixed operator*(const Fixed copy);
-	Fixed operator/(const Fixed copy);
+	Fixed operator-(const Fixed copy) const;
+	Fixed operator*(const Fixed copy) const;
+	Fixed operator/(const Fixed copy) const;
 	Fixed &operator++();		// pre-increment
 	Fixed operator++(int n);	// post-increment
 	Fixed &operator--();		// pre-decrement

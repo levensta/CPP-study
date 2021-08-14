@@ -6,7 +6,6 @@
 
 const int Fixed::fraction = 8;
 const int Fixed::exp = Fixed::myPow();
-const int Fixed::theSmallestRepresentableEPS = Fixed::getSmallestEPS();
 
 Fixed::Fixed() : value(0) {
 	std::cout << "Default constructor called" << std::endl;
@@ -37,71 +36,9 @@ Fixed &Fixed::operator=(const Fixed &copy) {
 	return *this;
 }
 
-Fixed Fixed::operator+(const Fixed copy) const {
-	return Fixed(this->toFloat() + copy.toFloat());
-}
-
-Fixed Fixed::operator-(const Fixed copy) {
-	return Fixed(this->toFloat() - copy.toFloat());
-}
-
-Fixed Fixed::operator*(const Fixed copy) {
-	return Fixed(this->toFloat() * copy.toFloat());
-}
-
-Fixed Fixed::operator/(const Fixed copy) {
-	return Fixed(this->toFloat() / copy.toFloat());
-}
-
-Fixed &Fixed::operator++() {
-	this->value += this->theSmallestRepresentableEPS;
-	return *this;
-}
-
-Fixed Fixed::operator++(int n) {
-	Fixed	tmp(this->toFloat());
-	this->value += this->theSmallestRepresentableEPS;
-	return tmp;
-}
-
-Fixed &Fixed::operator--() {
-	this->value -= this->theSmallestRepresentableEPS;
-	return *this;
-}
-
-Fixed Fixed::operator--(int n) {
-	Fixed	tmp(this->toFloat());
-	this->value -= this->theSmallestRepresentableEPS;
-	return tmp;
-}
-
 std::ostream& operator<<(std::ostream& os, const Fixed& obj) {
 	os << obj.toFloat();
 	return os;
-}
-
-bool 			operator==(const Fixed &first, const Fixed &second) {
-	return first.getRawBits() == second.getRawBits();
-}
-
-bool 			operator!=(const Fixed &first, const Fixed &second) {
-	return first.getRawBits() != second.getRawBits();
-}
-
-bool 			operator>=(const Fixed &first, const Fixed &second) {
-	return first.getRawBits() >= second.getRawBits();
-}
-
-bool 			operator<=(const Fixed &first, const Fixed &second) {
-	return first.getRawBits() <= second.getRawBits();
-}
-
-bool 			operator<(const Fixed &first, const Fixed &second) {
-	return first.getRawBits() < second.getRawBits();
-}
-
-bool 			operator>(const Fixed &first, const Fixed &second) {
-	return first.getRawBits() > second.getRawBits();
 }
 
 int Fixed::getRawBits() const {
@@ -129,40 +66,4 @@ const int Fixed::myPow() {
 		value *= 2;
 	}
 	return (value);
-}
-
-const int Fixed::getSmallestEPS() {
-	int	e = static_cast<int>(roundf(EPS * exp));
-	while (e >> 1 > 0) {
-		e = e >> 1;
-	}
-	return e;
-}
-
-Fixed &Fixed::min(Fixed &first, Fixed &second) {
-	if (first < second) {
-		return first;
-	}
-	return second;
-}
-
-Fixed const &Fixed::min(Fixed const &first, Fixed const &second) {
-	if (first < second) {
-		return first;
-	}
-	return second;
-}
-
-Fixed &Fixed::max(Fixed &first, Fixed &second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
-}
-
-Fixed const &Fixed::max(Fixed const &first, Fixed const &second) {
-	if (first > second) {
-		return first;
-	}
-	return second;
 }

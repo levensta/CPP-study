@@ -9,15 +9,15 @@ const int Fixed::exp = Fixed::myPow();
 const int Fixed::theSmallestRepresentableEPS = Fixed::getSmallestEPS();
 
 Fixed::Fixed() : value(0) {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 };
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 };
 
 Fixed::Fixed(const Fixed &copy) {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -30,7 +30,7 @@ Fixed::Fixed(const float value) {
 }
 
 Fixed &Fixed::operator=(const Fixed &copy) {
-	std::cout << "Assignation operator called" << std::endl;
+//	std::cout << "Assignation operator called" << std::endl;
 	if (this != &copy) {
 		this->value = copy.getRawBits();
 	}
@@ -41,15 +41,15 @@ Fixed Fixed::operator+(const Fixed copy) const {
 	return Fixed(this->toFloat() + copy.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed copy) {
+Fixed Fixed::operator-(const Fixed copy) const {
 	return Fixed(this->toFloat() - copy.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed copy) {
+Fixed Fixed::operator*(const Fixed copy) const {
 	return Fixed(this->toFloat() * copy.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed copy) {
+Fixed Fixed::operator/(const Fixed copy) const {
 	return Fixed(this->toFloat() / copy.toFloat());
 }
 
@@ -105,12 +105,12 @@ bool 			operator>(const Fixed &first, const Fixed &second) {
 }
 
 int Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
+//	std::cout << "getRawBits member function called" << std::endl;
 	return this->value;
 }
 
 void Fixed::setRawBits(const int raw) {
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 
