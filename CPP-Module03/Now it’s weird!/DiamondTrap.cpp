@@ -4,7 +4,7 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap (name), FragTrap(name), ScavTrap(name) {
 	this->health = FragTrap::health;
 	this->energy = ScavTrap::energy;
 	this->attackDamage = FragTrap::attackDamage;
@@ -38,5 +38,5 @@ void DiamondTrap::beRepaired(unsigned int amount) {
 void DiamondTrap::whoAmI() {
 	std::cout << "👤 DiamondTrap name: " << this->name << " 👤" << std::endl;
 	std::cout << "👤 ClapTrap name: " << ClapTrap::name << " 👤" << std::endl;
-	std::cout << this->health << " " << this->attackDamage << " " << this->energy << std::endl;
+//	std::cout << this->health << " " << this->attackDamage << " " << this->energy << std::endl;
 }
