@@ -2,8 +2,14 @@ NAME = a.out
 
 CLANG = clang++ -Wall -Werror
 
-SRC =	main.cpp \
-		AMateria.cpp
+SRC =	AMateria.cpp  \
+		Character.cpp \
+		Cure.cpp \
+		ICharacter.cpp \
+		IMateriaSource.cpp \
+		Ice.cpp \
+		MateriaSource.cpp \
+		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

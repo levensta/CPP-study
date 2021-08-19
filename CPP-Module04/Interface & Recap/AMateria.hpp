@@ -6,7 +6,7 @@
 #define CPP_STUDY_AMATERIA_HPP
 
 #include <iostream>
-#include "ICharacter.hpp"
+class ICharacter;
 
 class AMateria {
 
@@ -24,5 +24,6 @@ public:
 	virtual void use(ICharacter& target) = 0;
 };
 
+#include "ICharacter.hpp"
 
 #endif //CPP_STUDY_AMATERIA_HPP

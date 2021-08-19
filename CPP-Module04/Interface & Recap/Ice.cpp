@@ -14,7 +14,7 @@ Ice::Ice(const Ice &copy) : AMateria("ice") {
 
 Ice &Ice::operator=(const Ice &copy) {
 	if (this != &copy) {
-		this->type = copy.type
+		this->type = copy.type;
 	}
 	return *this;
 }
