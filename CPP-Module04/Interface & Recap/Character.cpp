@@ -21,8 +21,9 @@ const std::string &Character::getName() const {
 
 void Character::equip(AMateria *m) {
 	for (int i = 0; i < COUNT_MATERIAS; ++i) {
-		if (this->_materias[i] != 0) {
+		if (this->_materias[i] == 0) {
 			this->_materias[i] = m;
+			break ;
 		}
 	}
 }
