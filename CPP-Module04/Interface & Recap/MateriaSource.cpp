@@ -46,10 +46,8 @@ void MateriaSource::learnMateria(AMateria *m) {
 AMateria *MateriaSource::createMateria(const std::string &type) {
 	for (int i = 0; i < COUNT_MATERIAS; ++i) {
 		if (this->_materias[i] && this->_materias[i]->getType() == type) {
-			std::cout << "!" << this->_materias[i]->getType() << std::endl;
 			return (this->_materias[i]);
 		}
 	}
-	std::cout << "create" << std::endl;
 	return 0;
 }
