@@ -26,8 +26,17 @@ int main( void ) {
 		std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	}
 	std::cout << "--------------------------------------------------------" << std::endl;
-	std::cout << "Shamil Tests:" << std::endl << std::endl;
+	std::cout << "Other Tests:" << std::endl << std::endl;
 	{
+		std::cout << "Awesome" << std::endl;
+		Awesome arg1(4);
+		Awesome arg2(2);
+		std::cout << "arg1 = " << arg1 << "; arg2 = " << arg2 << ";" << std::endl;
+		::swap(arg1, arg2);
+		std::cout << "arg1 = " << arg1 << "; arg2 = " << arg2 << ";" << std::endl;
+		std::cout << "min(arg1, arg2) = " << ::min(arg1, arg2) << std::endl;
+		std::cout << "max(arg1, arg2) = " << ::max(arg1, arg2) << std::endl;
+
 		std::cout << "INT" << std::endl;
 		int		a = 2;
 		int		b = 5;

@@ -5,6 +5,7 @@
 #ifndef CPP_STUDY_ARRAY_HPP
 #define CPP_STUDY_ARRAY_HPP
 
+#include <iostream>
 
 template<typename T>
 class Array {
@@ -20,12 +21,19 @@ public:
 	~Array();
 	Array &operator=(const Array &copy);
 	size_t size(); // возврашает size_t или size_t &
-	T &operator[](size_t index); // исключение std::exception - что выводит?
+	T &operator[](size_t index);
 
 	class InvalidIndexException : public std::exception {
 	public:
 		InvalidIndexException();
 		virtual ~InvalidIndexException() throw ();
+		virtual const char* what() const throw();
+	};
+
+	class EmptyArrayException : public std::exception {
+	public:
+		EmptyArrayException();
+		virtual ~EmptyArrayException() throw ();
 		virtual const char* what() const throw();
 	};
 };
@@ -39,39 +47,69 @@ Array<T>::InvalidIndexException::~InvalidIndexException() throw() {}
 
 template<typename T>
 const char *Array<T>::InvalidIndexException::what() const throw() {
-	return "Index of array is out of range"
+	return "Index of array is out of range";
 }
 
 template<typename T>
-Array<T>::Array<typename T>() : _size(0) {
+Array<T>::EmptyArrayException::EmptyArrayException() : std::exception() {}
+
+template<typename T>
+Array<T>::EmptyArrayException::~EmptyArrayException() throw() {}
+
+template<typename T>
+const char *Array<T>::EmptyArrayException::what() const throw() {
+	return "Referring to an empty array ";
+}
+
+template<typename T>
+Array<T>::Array() : _size(0) {
 	this->_arr = new T[this->_size];
 }
 
 template<typename T>
-Array<T>::Array<typename T>(unsigned int n) : _size(n) {
+Array<T>::Array(unsigned int n) : _size(n) {
 	this->_arr = new T[this->_size];
 }
 
 template<typename T>
-Array<T>::Array<typename T>(const Array<T> &copy) {
+Array<T>::~Array<T>() {
+	delete [] this->_arr;
+}
+
+template<typename T>
+Array<T>::Array(const Array<T> &copy) {
 	*this = copy;
 }
 
 template<typename T>
-&Array<T>::operator=(const Array<T> &copy) {
+Array<T> &Array<T>::operator=(const Array<T> &copy) {
 	if (this != &copy) {
-		this->_arr = copy._arr;
+		if (this->_size != copy._size) {
+			delete [] this->_arr;
+			this->_arr = new T[copy._size];
+		}
 		this->_size = copy._size;
+		for (int i = 0; i < this->_size; ++i) {
+			this->_arr[i] = copy._arr[i];
+		}
 	}
 	return *this;
 }
 
 template<typename T>
-&Array<T>::operator[](int index) {
-	if (index < 0 || index > this->_size) {
+T &Array<T>::operator[](size_t index) {
+	if (this->_size == 0) {
+		throw EmptyArrayException();
+	}
+	else if (index > this->_size) {
 		throw InvalidIndexException();
 	}
 	return this->_arr[index];
+}
+
+template<typename T>
+size_t Array<T>::size() {
+	return this->_size;
 }
 
 #endif //CPP_STUDY_ARRAY_HPP
