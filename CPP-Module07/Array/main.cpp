@@ -1,55 +1,57 @@
-//
-// Created by Lorent Evenstar on 8/28/21.
-//
-
+#include <iostream>
 #include "Array.hpp"
 
-int main() {
-	try {
-		Array<int>	i(10);
-		i[0] = 10;
-		std::cout << i[0] << std::endl;
+#define MAX_VAL 750
+int main(int, char**)
+{
+	Array<int> numbers(MAX_VAL);
+	int* mirror = new int[MAX_VAL];
+	srand(time(NULL));
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		const int value = rand();
+		numbers[i] = value;
+		mirror[i] = value;
 	}
-	catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
+	//SCOPE
+	{
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
 	}
-	try {
-		Array<int>	i;
-		i[0] = 10;
-		std::cout << i[0] << std::endl;
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		if (mirror[i] != numbers[i])
+		{
+			std::cerr << "didn't save the same value!!" << std::endl;
+			return 1;
+		}
 	}
-	catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
+	try
+	{
+		std::cout << "numbers[-2] = 0" << std::endl;
+		numbers[-2] = 0;
+		std::cout << "Success" << std::endl;
 	}
-	try {
-		Array<int>	i(10);
-		i[0] = 10;
-		std::cout << i[11] << std::endl;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
-	catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
+	try
+	{
+		std::cout << "numbers[MAX_VAL] = 0" << std::endl;
+		numbers[MAX_VAL] = 0;
+		std::cout << "Success" << std::endl;
 	}
-	try {
-		Array<std::string>	s(10);
-		s[0] = "Hello World!";
-		std::cout << s[0] << std::endl;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
-	catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
+
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		numbers[i] = rand();
 	}
-	try {
-		Array<std::string>	s;
-		std::cout << s[0] << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-	try {
-		Array<std::string>	s(5);
-		std::cout << s[-1] << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
-	}
+	delete [] mirror;//
 	return 0;
 }

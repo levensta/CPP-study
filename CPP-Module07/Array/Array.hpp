@@ -20,8 +20,8 @@ public:
 	Array(const Array &copy);
 	~Array();
 	Array &operator=(const Array &copy);
-	size_t size(); // возврашает size_t или size_t &
-	T &operator[](size_t index);
+	size_t size() const; // возврашает size_t или size_t &
+	T &operator[](int index);
 
 	class InvalidIndexException : public std::exception {
 	public:
@@ -63,32 +63,38 @@ const char *Array<T>::EmptyArrayException::what() const throw() {
 
 template<typename T>
 Array<T>::Array() : _size(0) {
-	this->_arr = new T[this->_size];
+//	this->_arr = new T[this->_size];
+	this->_arr = NULL;
 }
 
 template<typename T>
 Array<T>::Array(unsigned int n) : _size(n) {
 	this->_arr = new T[this->_size];
+	for (int i = 0; i < this->_size; ++i) {
+		this->_arr[i] = 0;
+	}
 }
 
 template<typename T>
 Array<T>::~Array<T>() {
-	delete [] this->_arr;
+	if (this->_arr) {
+		delete [] this->_arr;
+	}
 }
 
 template<typename T>
-Array<T>::Array(const Array<T> &copy) {
+Array<T>::Array(const Array<T> &copy) : _arr(NULL), _size(0) {
 	*this = copy;
 }
 
 template<typename T>
 Array<T> &Array<T>::operator=(const Array<T> &copy) {
 	if (this != &copy) {
-		if (this->_size != copy._size) {
+		if (this->_arr && this->_size) {
 			delete [] this->_arr;
-			this->_arr = new T[copy._size];
 		}
 		this->_size = copy._size;
+		this->_arr = new T[this->_size];
 		for (int i = 0; i < this->_size; ++i) {
 			this->_arr[i] = copy._arr[i];
 		}
@@ -97,18 +103,18 @@ Array<T> &Array<T>::operator=(const Array<T> &copy) {
 }
 
 template<typename T>
-T &Array<T>::operator[](size_t index) {
+T &Array<T>::operator[](int index) {
 	if (this->_size == 0) {
 		throw EmptyArrayException();
 	}
-	else if (index > this->_size) {
+	else if (static_cast<size_t>(index) >= this->_size || index < 0) {
 		throw InvalidIndexException();
 	}
 	return this->_arr[index];
 }
 
 template<typename T>
-size_t Array<T>::size() {
+size_t Array<T>::size() const {
 	return this->_size;
 }
 
